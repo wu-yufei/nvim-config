@@ -53,3 +53,7 @@ end
 -- {{{ completion
 vim.o.completeopt = "fuzzy,menuone,noinsert,popup"
 -- }}}
+
+-- {{{ vcs
+require("gitsigns").setup()
+-- }}}
