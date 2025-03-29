@@ -20,12 +20,12 @@ vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
 -- {{{ LSP
 vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function()
-		-- backport from nightly
-		vim.keymap.set("n", "grn", vim.lsp.buf.rename)
-		vim.keymap.set("n", "gra", vim.lsp.buf.code_action)
-		vim.keymap.set("n", "grr", vim.lsp.buf.references)
-		vim.keymap.set("n", "<C-s>", vim.lsp.buf.signature_help)
+	callback = function(args)
+		local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+		-- Enable auto-completion
+		if client:supports_method("textDocument/completion") then
+			vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+		end
 	end,
 })
 -- }}}
@@ -48,4 +48,8 @@ if vim.fn.executable("fcitx5-remote") == 1 then
 		end,
 	})
 end
+-- }}}
+
+-- {{{ completion
+vim.o.completeopt = "fuzzy,menuone,noinsert,popup"
 -- }}}
