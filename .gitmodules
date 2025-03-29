@@ -1,3 +1,9 @@
 [submodule "gitsigns"]
 	path = pack/vcs/start/gitsigns
 	url = https://github.com/lewis6991/gitsigns.nvim
+[submodule "telescope"]
+	path = pack/fuzzy-finder/start/telescope
+	url = https://github.com/nvim-telescope/telescope.nvim
+[submodule "plenary"]
+	path = pack/lua/start/plenary
+	url = https://github.com/nvim-lua/plenary.nvim
