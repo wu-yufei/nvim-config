@@ -7,3 +7,6 @@
 [submodule "plenary"]
 	path = pack/lua/start/plenary
 	url = https://github.com/nvim-lua/plenary.nvim
+[submodule "context"]
+	path = pack/treesitter/start/context
+	url = https://github.com/nvim-treesitter/nvim-treesitter-context
