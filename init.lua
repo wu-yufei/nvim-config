@@ -57,3 +57,7 @@ vim.o.completeopt = "fuzzy,menuone,noinsert,popup"
 -- {{{ vcs
 require("gitsigns").setup()
 -- }}}
+
+-- {{{ diagnostic
+vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist)
+-- }}}
